@@ -1,5 +1,11 @@
 @startuml
 title Komunikacja miêdzy komponentami
+
+skinparam node {
+	backgroundColor<<Kontroler>> #LightBlue
+	backgroundColor<<Monitor>> #DarkSalmon
+}
+
 package "GUI" {
 	[core] as GUICore
 	HTTP - GUICore
@@ -10,7 +16,7 @@ package "CUI" {
 }
 
 
-node "Kontroler" {
+node "Kontroler" <<Kontroler>>{
 	[kontroler]
 	interface REST as kontroler_REST
 	database "kontrolerDB" {
@@ -32,7 +38,7 @@ node "Kontroler" {
 	[CUICore] - kontroler_REST
 	kontroler - kontrolerDB
 }
-node "Monitor" {
+node "Monitor" <<Monitor>>{
 	database "monitorDB" {
 		folder "host" as monitorHost {
 		}
@@ -48,7 +54,7 @@ node "Monitor" {
     monitor_REST - [kontroler]	
 	[monitor] - monitorDB
 }
-node "Monitor2" {
+node "Monitor2" <<Monitor>>{
 	database "monitor2DB" {
 		folder "host" as monitor2Host {
 		}
