@@ -1,0 +1,15 @@
+@startuml
+title Pobieranie listy elementów (host, service, monitor, problem)
+autonumber
+
+actor UI #red
+box "Kontroler" #LightBlue
+	control kontroler
+	database kontrolerDB
+end box
+
+UI -> kontroler: GET /<element>
+kontroler -> kontrolerDB: pobierz <element> z bazy
+kontrolerDB -> kontroler: 
+kontroler --> UI: lista <element>, status 200
+@enduml

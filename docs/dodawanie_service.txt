@@ -1,0 +1,31 @@
+@startuml
+title Dodawanie service
+actor UI #red
+box "Kontroler" #LightBlue
+	control kontroler
+	database kontrolerDB
+end box
+box "Monitor" #DarkSalmon 
+	control monitor
+	database monitorDB
+end box
+autonumber
+UI -> kontroler: POST /service
+kontroler -> kontroler: Walidacja danych
+alt dane poprawne
+    kontroler -> kontrolerDB: dodaj do bazy
+    kontroler -> monitor: POST /service
+	monitor -> monitor: Walidacja danych
+	alt dane poprane
+	    monitor -> monitorDB: Dodaj do bazy
+	    monitor --> kontroler: status 201
+		kontroler --> UI: status 201
+	else dane niepoprawne
+	    monitor -> kontroler: status 400
+		kontroler --> UI: status 400
+	end
+else danie niepoprawne
+    kontroler --> UI: status 400 
+end
+
+@enduml

@@ -1,0 +1,25 @@
+@startuml
+title Wykonywanie pomiarów
+autonumber
+
+box "Monitor" #DarkSalmon
+	database monitorDB
+	control monitor
+end box
+entity checker
+box "Kontroler" #LightBlue
+	control kontroler
+end box	
+
+loop dla wszystkich service'ów sprawdzanych w danej chwili
+	monitor -> checker: wykonaj
+	activate checker
+	checker --> monitor: zwraca WARTOŒÆ
+	deactivate checker
+	monitor -> monitorDB: dodaj pomiar do bazy
+	alt jeœli WARTOŒÆ jest WARNING, CRITICAL, UNKNOW
+		monitor -> kontroler: POST /problem
+		kontroler -> monitor: pe³na synchronizacja
+	end
+end
+@enduml
