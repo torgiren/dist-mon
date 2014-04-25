@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>dist-mon-gui-root</artifactId>
-        <groupId>is.agh.zespolowe</groupId>
+        <groupId>is.agh.dist.mon</groupId>
         <version>1.0</version>
     </parent>
 
