@@ -1,0 +1,11 @@
+{
+    "host":
+            [{
+                    "name": "localhost",
+                    "url": "/host/1"
+                },
+                {
+                    "name": "www",
+                    "url": "/host/3"
+                }]
+}

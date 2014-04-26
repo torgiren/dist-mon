@@ -61,7 +61,17 @@
             <artifactId>spring-web</artifactId>
         </dependency>
         
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>dist-mon-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>dist-mon-gui-service</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

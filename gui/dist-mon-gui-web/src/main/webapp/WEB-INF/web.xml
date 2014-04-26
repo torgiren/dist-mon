@@ -36,7 +36,7 @@
     </context-param>
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>is.agh.zespolowe.monitoring.web.config.Config</param-value>
+        <param-value>is.agh.dist.mon.gui.web.config.WebConfig</param-value>
     </context-param>
     <listener>
         <listener-class>

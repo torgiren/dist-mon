@@ -12,6 +12,9 @@
         <spring.version>4.0.0.RELEASE</spring.version>
         <jsf.version>2.2.2</jsf.version>
         <primefaces.version>3.5</primefaces.version>
+        <junit.version>4.11</junit.version>
+        <jackson.version>1.9.12</jackson.version>
+        <wiremock.version>1.46</wiremock.version>
     </properties>
     
     <repositories>
@@ -26,10 +29,13 @@
         <module>dist-mon-gui-web</module>
         <module>dist-mon-gui-dao</module>
         <module>dist-mon-gui-commons</module>
+        <module>dist-mon-gui-service</module>
+        <module>dist-mon-api</module>
     </modules>
     
     <dependencyManagement>
         <dependencies>
+            
             <dependency>
                 <groupId>com.sun.faces</groupId>
                 <artifactId>jsf-api</artifactId>
@@ -62,13 +68,35 @@
                 <artifactId>spring-web</artifactId>
                 <version>${spring.version}</version>
             </dependency>
-            
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
             
             <!-- JSF PRIME FACES FIX -->
             <dependency>
                 <groupId>commons-fileupload</groupId>
                 <artifactId>commons-fileupload</artifactId>
                 <version>1.3</version>
+            </dependency>
+            
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+            
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-mapper-asl</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            
+            <dependency>
+                <groupId>com.github.tomakehurst</groupId>
+                <artifactId>wiremock</artifactId>
+                <version>${wiremock.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
