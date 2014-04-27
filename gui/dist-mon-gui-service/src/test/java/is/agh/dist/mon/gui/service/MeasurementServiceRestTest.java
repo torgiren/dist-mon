@@ -23,8 +23,8 @@ public class MeasurementServiceRestTest {
     
     @BeforeClass
     public static void setup() {
-        wireMockServer = new WireMockServer(wireMockConfig().port(8089));
-        WireMock.configureFor("localhost", 8089);
+        wireMockServer = new WireMockServer(wireMockConfig().port(8909));
+        WireMock.configureFor("localhost", 8909);
         wireMockServer.start();
     }
     

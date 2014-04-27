@@ -11,7 +11,8 @@ public class HostDto {
     private List<ServiceDto> services;
     private boolean active;
     private int downtime;
-
+    private String url;
+    
     public int getId() {
         return id;
     }
@@ -68,5 +69,12 @@ public class HostDto {
         this.downtime = downtime;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
     
 }
