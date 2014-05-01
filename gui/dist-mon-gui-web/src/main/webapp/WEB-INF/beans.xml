@@ -5,6 +5,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans 
             http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
     
-    <bean id="helloBean" class="is.agh.dist.mon.gui.web.bean.HelloBean" />
+    <!--<bean id="helloBean" class="is.agh.dist.mon.gui.web.bean.HelloBean" />-->
 
 </beans>

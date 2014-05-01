@@ -31,6 +31,7 @@
         <module>dist-mon-gui-commons</module>
         <module>dist-mon-gui-service</module>
         <module>dist-mon-api</module>
+        <module>dist-mon-mok</module>
     </modules>
     
     <dependencyManagement>
