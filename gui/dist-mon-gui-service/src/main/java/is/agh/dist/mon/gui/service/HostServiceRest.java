@@ -14,8 +14,6 @@ public class HostServiceRest implements HostService {
 
     @Value("${catalog.address}")
     private String catalogAddress;
-    @Value("${monitor.address}")
-    private String monitorAddress;
     @Value("${catalog.host}")
     private String hostQuery;
     @Value("${catalog.hostById}")
