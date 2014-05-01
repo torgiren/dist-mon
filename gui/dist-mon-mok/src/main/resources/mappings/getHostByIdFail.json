@@ -1,0 +1,14 @@
+{
+    "request": {
+            "method": "GET",
+            "url": "/host/-1"
+    },
+    
+    "response": {
+            "status": 404,
+            "bodyFileName": "getHostByIdFail.json",
+            "headers": {
+                    "Content-Type": "application/json"
+            }
+    }
+}

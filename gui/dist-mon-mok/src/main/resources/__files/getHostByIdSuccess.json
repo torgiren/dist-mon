@@ -1,0 +1,15 @@
+{
+    "host":
+            {
+                "id": 0,
+                "name": "localhost",
+                "address": "127.0.0.1",
+                "services": [
+                    "/service/1",
+                    "/service/4",
+                    "/service/6"
+                ],
+                "active": 1,
+                "downtime": 0
+            }
+}

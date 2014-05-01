@@ -1,0 +1,14 @@
+{
+    "request": {
+            "method": "GET",
+            "urlPattern": "/catalog/host/[0-9]+"
+    },
+    
+    "response": {
+            "status": 200,
+            "bodyFileName": "getHostByIdSuccess.json",
+            "headers": {
+                    "Content-Type": "application/json"
+            }
+    }
+}

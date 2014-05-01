@@ -1,0 +1,11 @@
+{
+    "service":
+            [{
+                    "name": "Memory",
+                    "url": "/service/1"
+                },
+                {
+                    "name": "CPU",
+                    "url": "/service/3"
+                }]
+}
