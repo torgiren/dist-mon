@@ -8,7 +8,7 @@ public class HostDto {
     private String name;
     private String address;
     private List<UserDto> notify;
-    private List<ServiceDto> services;
+    private List<String> services;
     private boolean active;
     private int downtime;
     private String url;
@@ -45,11 +45,11 @@ public class HostDto {
         this.notify = notify;
     }
 
-    public List<ServiceDto> getServices() {
+    public List<String> getServices() {
         return services;
     }
 
-    public void setServices(List<ServiceDto> services) {
+    public void setServices(List<String> services) {
         this.services = services;
     }
 

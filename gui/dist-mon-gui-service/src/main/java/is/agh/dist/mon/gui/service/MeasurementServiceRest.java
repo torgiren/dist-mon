@@ -14,8 +14,6 @@ public class MeasurementServiceRest implements MeasurementService {
 
     @Value("${catalog.address}")
     private String catalogAddress;
-    @Value("${monitor.address}")
-    private String monitorAddress;
     @Value("${catalog.service}")
     private String serviceQuery;
     @Value("${catalog.serviceById}")
