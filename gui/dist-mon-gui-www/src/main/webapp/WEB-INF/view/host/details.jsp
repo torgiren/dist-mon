@@ -4,7 +4,7 @@
 
 <!DOCTYPE html>
 <t:layout>
-    <h1>Host details!</h1>
+    <h2>Host details!</h2>
 
     <p> ${host.name} </p>
     <p> ${host.address} </p>

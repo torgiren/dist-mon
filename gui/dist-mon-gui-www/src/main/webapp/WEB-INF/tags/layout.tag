@@ -5,11 +5,26 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="<c:url value="/resources/styles/main.css" />" rel="stylesheet" />
+        <link href="<c:url value="/resources/styles/style.css" />" rel="stylesheet" />
         
         <title>dist-mon www</title>
     </head>
     <body>
-        <jsp:doBody />
+        <div class="header">
+            <a href="<c:url value="/home" />">Disitributed monitoring GUI</a>
+        </div>
+        <div class="content">
+            <div class="left-menu">
+                <div class="left-menu-item">
+                    <a href="<c:url value="/host/list" />">Hosts</a>
+                </div>
+                <div class="left-menu-item">
+                    <a href="<c:url value="/problem/list" />">Problems</a>
+                </div>
+            </div>
+            <div class="view-content">
+                <jsp:doBody />
+            </div>
+        </div>
     </body>
 </html>

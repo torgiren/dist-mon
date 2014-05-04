@@ -1,0 +1,14 @@
+{
+    "request": {
+            "method": "GET",
+            "urlPattern": "/problem/[0-9]+"
+    },
+    
+    "response": {
+            "status": 200,
+            "bodyFileName": "getProblemByIdSuccess.json",
+            "headers": {
+                    "Content-Type": "application/json"
+            }
+    }
+}

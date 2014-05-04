@@ -4,11 +4,11 @@
 
 <!DOCTYPE html>
 <t:layout>
-    <h2>List of hosts!</h2>
+    <h2>List of problems!</h2>
 
     <ul>
-        <c:forEach var="host" items="${hosts}">
-            <li> <a href="<c:url value="${host.url}" />"> ${host.name} </a> </li>
+        <c:forEach var="problem" items="${problems}">
+            <li> <a href="<c:url value="/problem/${problem.id}" />"> ${problem.status} </a> </li>
         </c:forEach>
     </ul>
 </t:layout>

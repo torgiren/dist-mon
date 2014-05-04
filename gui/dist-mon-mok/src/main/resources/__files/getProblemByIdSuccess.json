@@ -1,0 +1,15 @@
+{
+    "entry":
+            {
+                "id": 1,
+                "status": "ERROR",
+                "service": {
+                    "id": 1,
+                    "name": "service1"
+                },
+                "host": {
+                    "id": 3,
+                    "name": "host3"
+                }
+            }
+}

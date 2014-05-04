@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  background-color: cornsilk;
+}
+
+.header {
+  padding: 16px;
+  font-size: 2em;
+  background-color: darkolivegreen;
+
+  & > a {
+    text-decoration: none;
+    color: floralwhite;
+
+    &:visited {
+      color: floralwhite;
+    }
+  }
+}
+
+.content {
+  margin-top: 24px;
+
+  .left-menu {
+    float: left;
+    width: 190px;
+    font-size: 1.5em;
+    background-color: darkolivegreen;
+    text-align: center;
+
+    .left-menu-item {
+      padding: 12px;
+
+      a {
+        text-decoration: none;
+        color: floralwhite;
+
+        &:visited {
+          color: floralwhite;
+        }
+
+        &:hover {
+          color: black;
+        }
+      }
+    }
+  }
+
+  .view-content {
+    margin: 214 0 24 0;
+    padding: 12px;
+    background-color: darkkhaki;
+  }
+}
+

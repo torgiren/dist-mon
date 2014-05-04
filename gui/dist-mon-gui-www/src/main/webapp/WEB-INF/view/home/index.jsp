@@ -4,5 +4,5 @@
 
 <!DOCTYPE html>
 <t:layout>
-    <h1>Disitributed monitoring GUI</h1>
+    <h2>Hello world</h2>
 </t:layout>

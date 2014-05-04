@@ -1,0 +1,14 @@
+{
+    "request": {
+            "method": "GET",
+            "url": "/problem"
+    },
+    
+    "response": {
+            "status": 200,
+            "bodyFileName": "getProblems.json",
+            "headers": {
+                    "Content-Type": "application/json"
+            }
+    }
+}
