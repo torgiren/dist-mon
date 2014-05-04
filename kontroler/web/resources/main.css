@@ -1,0 +1,135 @@
+/* 
+    Document   : main.css
+    Created on : 2014-01-18, 09:51:19
+    Author     : Maciej
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+body {
+    background-image: url("background.png");
+    margin-top: 0px;
+    margin-right: 30px;
+}
+#top,#menu,#content
+{
+    border: 0px solid black;
+}
+
+#top
+{
+ text-align: center;   
+}
+
+#content
+{
+    float:left;
+    background-repeat:no-repeat;
+    background-size: auto;
+    width: 70%;
+    
+}
+
+#contentNews
+{
+   position: absolute; 
+   margin: 30px;
+   width: 580px;
+   height: 350px;
+   overflow:auto;
+}
+
+#contentBackground
+{
+    position: absolute;
+}
+
+#menu
+{
+    float:right;
+     background-image: url("menu.png");
+   width: 238px; height: 421px;
+}
+
+#menuTekst
+{
+   padding: 30px;
+}
+
+#loginForm
+{    
+     width: 200px;
+   height: 200px;
+   position: absolute;
+   left: 50%;
+   top: 50%; 
+   margin-left: -100px; /* połowa szerokości */
+   margin-top: -100px;  /* połowa wysokości */
+}
+
+#centerAdmContent
+{
+    width: 100%;
+    text-align: center;
+}
+
+#admContent
+{
+   text-align: left;
+   width: 650px;
+   height: 422px;
+   display: inline-block;
+   background-image: url("content.png");
+}
+
+#admContentText
+{
+    padding: 20px;
+}
+
+#admMenu
+{
+    margin-top: 20px;
+    width:100%;
+    text-align: center;
+}
+
+#formNews
+{
+    float: left;
+    width: 45%;
+}
+
+#formNewsView
+{
+    float:right;
+    width: 55%;
+    overflow: auto;
+    height: 330px;
+}
+a{
+    text-decoration: none; 
+    color:black;
+}
+#indexTitles
+{
+  text-decoration: none; 
+    margin-top: 3px;
+    
+}
+#indexTitles:hover
+{
+    background-color: red;
+}
+#newsAdm
+{
+    margin: 3px;
+}
+#newsContent
+{
+    width: 250px;
+    height: 180px;
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<b:bean>
+
+    <http>
+
+        <form-login login-page="/login/" authentication-failure-url="/fail/"/>
+
+        <logout logout-success-url="/"/>
+
+    </http>
+
+    <authentication-manager>
+
+        <authentication-provider user-service-ref='myUserDetailsService' />
+
+    </authentication-manager>
+
+    <b:bean id="myUserDetailsService" class="eu.javablog.security.MyUserDataService" />
+
+</b:bean>
