@@ -1,0 +1,31 @@
+@startuml
+title Usuwanie hosta z monitoringu
+autonumber
+
+actor UI #red
+box "Kontroler" #LightBlue
+	control kontroler
+	database kontrolerDB
+end box
+box "Monitor" #DarkSalmon
+	control monitor
+	database monitorDB
+end box
+
+
+UI -> kontroler: DELETE /host/{id}
+kontroler -> kontrolerDB: pobierz service'y dla hosta
+kontrolerDB -> kontroler: lista service'ów
+loop dla ka¿dego service'u
+	kontroler -> kontroler: uaktualnienie service'u
+	kontroler -> kontrolerDB: podmiana w bazie
+	kontroler -> monitor: POST /service
+	monitor -> monitorDB: podmiana w bazie
+	monitor --> kontroler: status 204
+end 
+kontroler -> kontrolerDB: usuniecie hosta
+kontroler -> monitor: DELETE /host/{id}
+monitor -> monitorDB: usuniêcie hosts
+
+kontroler --> UI: status 204
+@enduml

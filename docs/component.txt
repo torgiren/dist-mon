@@ -1,0 +1,94 @@
+@startuml
+title Komunikacja miêdzy komponentami
+
+skinparam node {
+	backgroundColor<<Kontroler>> #LightBlue
+	backgroundColor<<Monitor>> #DarkSalmon
+}
+
+package "GUI" {
+	[core] as GUICore
+	HTTP - GUICore
+}
+package "CUI" {
+	[core] as CUICore
+	console - CUICore
+}
+
+
+node "Kontroler" <<Kontroler>>{
+	[kontroler]
+	interface REST as kontroler_REST
+	database "kontrolerDB" {
+		folder "monitor" {
+		}
+		folder "host" {
+		}
+		folder "service" {
+		}
+		folder "pomiar" {
+		}
+		folder "uzytkownik" {
+		}
+		folder "problem" {
+		}
+	}
+	kontroler_REST - [kontroler]
+	[GUICore] - kontroler_REST
+	[CUICore] - kontroler_REST
+	kontroler - kontrolerDB
+}
+node "Monitor" <<Monitor>>{
+	database "monitorDB" {
+		folder "host" as monitorHost {
+		}
+		folder "service" as monitorService{
+		}
+		folder "pomiar" as monitorPomiar {
+		}
+	}
+	[monitor]
+	interface REST as monitor_REST
+
+	monitor_REST - [monitor]
+    monitor_REST - [kontroler]	
+	[monitor] - monitorDB
+}
+node "Monitor2" <<Monitor>>{
+	database "monitor2DB" {
+		folder "host" as monitor2Host {
+		}
+		folder "service" as monitor2Service{
+		}
+		folder "pomiar" as monitor2Pomiar {
+		}
+	}
+	[monitor2]
+	interface REST as monitor2_REST
+
+	monitor2_REST - [monitor2]
+    monitor2_REST - [kontroler]	
+	[monitor2] - monitor2DB
+}
+
+node "Checker" {
+	interface Executeable
+	Executeable - [checker]
+	[monitor] - [Executeable]
+	[monitor2] - [Executeable]	
+}
+node "Checker2" {
+	interface Executeable2
+	Executeable2 - [checker2]
+	[monitor] - [Executeable2]
+	[monitor2] - [Executeable2]	
+}
+node "Checker3" {
+	interface Executeable3
+	Executeable3 - [checker3]
+	[monitor] - [Executeable3]
+	[monitor2] - [Executeable3]	
+}
+
+
+@enduml

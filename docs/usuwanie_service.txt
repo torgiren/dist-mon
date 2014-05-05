@@ -1,0 +1,23 @@
+@startuml
+title Usuwanie service z monitoringu
+autonumber
+
+actor UI #red
+box "Kontroler" #LightBlue
+	control kontroler
+	database kontrolerDB
+end box
+box "Monitor" #DarkSalmon
+	control monitor
+	database monitorDB
+end box
+
+
+UI -> kontroler: DELETE /service/{id}
+kontroler -> kontrolerDB: usuniecie z bazy
+kontroler -> monitor: DELETE /host/{id}
+monitor -> monitorDB: usuniêcie z bazy
+monitor --> kontroler: status 204
+
+kontroler --> UI: status 204
+@enduml

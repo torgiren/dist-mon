@@ -1,0 +1,128 @@
+@startuml
+autonumber
+title Przyk³adowa sekwencja ¿ycia systemu
+actor UI #red
+control kontroler
+control monitor
+entity checker
+entity host
+
+UI -> kontroler: get probles
+kontroler -> UI: no problems
+
+monitor -> checker: CPU service for host
+checker -> host: chceck cpu
+host --> checker: 65%
+checker --> monitor: OK 65%
+monitor -> monitor: zapisuje do bazy
+
+UI -> kontroler: get problem
+kontroler -> UI: no problems
+
+monitor -> checker: CPU service for host
+checker -> host: check cpu
+host --> checker: 96%
+checker --> monitor: CRITICAL 96%
+monitor -> monitor: zapisuje do bazy
+monitor -> kontroler: problem
+
+kontroler -> monitor: synchronizacja
+monitor -> kontroler: dane
+kontroler -> kontroler: zapisz w bazie
+kontroler --> monitor: zapisane od <timestamp>
+monitor -> monitor: wyczysc baze
+
+UI -> kontroler: get problem
+kontroler --> UI: CPU problem on host
+
+UI -> kontroler: get service details, CPU on host
+alt jeœli wiêcej ni¿ 30 sekund od ostatniej synchronizacji
+	kontroler -> monitor: synchronizacja
+	monitor -> kontroler: dane
+	kontroler -> kontroler: zapis do bazy
+	kontroler -> monitor: zapisane do <timestamp>
+	monitor -> monitor: wyczyœæ bazê
+end
+kontroler --> UI: details
+
+monitor -> checker: CPU service for host
+checker -> host: chceck cpu
+host --> checker: 35%
+checker --> monitor: OK 35%
+monitor -> monitor: zapisuje do bazy
+
+UI -> kontroler: dodaj service memory do hsot
+kontroler -> kontroler: zapisz w bazie
+kontroler -> monitor: dodaj service do host 
+monitor -> monitor: zapisz do bazy
+kontroler -> UI: dodane
+
+UI -> kontroler: get problem
+kontroler --> UI: no problems
+
+monitor -> checker: CPU service for host
+checker -> host: chceck cpu
+monitor -> checker: memory service for host
+checker -> host: chceck memory
+host --> checker: 35%
+host --> checker: 100MB/512MB
+checker --> monitor: OK 35%
+checker --> monitor: OK 128MB/512MB, 25%
+monitor -> monitor: zapisuje do bazy
+monitor -> monitor: zapisuje do bazyRR
+
+
+monitor -> checker: CPU service for host
+checker -> host: chceck cpu
+monitor -> checker: memory service for host
+checker -> host: chceck memory
+host --> checker: 95%
+host --> checker: 500MB/512MB
+
+UI -> kontroler: get problem
+kontroler --> UI: no problems
+
+checker --> monitor: CRITICAL 95%
+checker --> monitor: CRITICAL 500MB/512MB, 95%
+monitor -> monitor: zapisuje do bazy
+monitor -> monitor: zapisuje do bazy
+
+monitor -> kontroler: problem
+kontroler -> monitor: synchronizacja
+
+note right of kontroler
+tutaj be³kot synchronizacyjny
+end note
+
+monitor -> kontroler: poblem
+note right of kontroler
+brak synchronizacji poniewa¿ < 30 sekund od ostatniej
+end note
+
+UI -> kontroler: get problem
+kontroler --> UI: CPU problem on host,\nmemory problem on host
+
+UI -> kontroler: CPU problem acknolwdge
+ 
+UI -> kontroler: get problem
+kontroler --> UI: memory problem on host
+
+== brak aktywnoœci u¿ytkownika przez 5 minut == 
+
+kontroler -> monitor: wymuszenie synchronizacji
+note right of kontroler
+be³kot synchronizacyjny
+end note
+
+
+
+
+
+
+
+
+
+
+
+
+@enduml

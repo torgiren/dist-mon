@@ -1,0 +1,25 @@
+@startuml
+title Synchronizacja z monitorami
+autonumber
+
+box "Monitor" #DarkSalmon
+	database monitorDB
+	control monitor
+end box
+box "Kontroler" #LightBlue
+	control kontroler
+	database kontrolerDB
+	entity rrdtool
+end box
+
+loop dla ka¿dego monitora
+	kontroler -> monitor: GET /data
+	monitor --> kontroler: timestamp, pomiary
+	loop dla wszystkich pomiarow
+		kontroler -> kontrolerDB: dodaj pomiar do bazy
+		kontroler -> rrdtool: uaktualnij baze
+	end
+	kontroler -> monitor: DELETE /data, timestamp
+	monitor -> monitorDB: usun wszystkie pomiary\ndo timestampa
+end
+@enduml

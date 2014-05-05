@@ -1,0 +1,18 @@
+@startuml
+title Dodawanie monitora
+actor UI #red
+box "Kontroler" #LightBlue
+	control Kontroler
+	database kontrolerDB
+end box
+autonumber
+UI -> Kontroler: POST /monitor
+Kontroler -> Kontroler: Walidacja danych
+alt dane poprawne
+    Kontroler -> kontrolerDB: dodaj do bazy
+    Kontroler -> UI: status 201
+else danie niepoprawne
+    Kontroler -> UI: status 400
+end
+
+@enduml

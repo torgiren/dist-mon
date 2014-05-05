@@ -1,0 +1,31 @@
+@startuml
+title Dodawanie hosta
+actor UI #red
+box "Kontroler" #LightBlue
+	control Kontroler
+	database kontrolerDB
+end box
+box "Monitor" #DarkSalmon
+	control Monitor
+	database monitorDB
+end box
+autonumber
+UI -> Kontroler: POST /host
+Kontroler -> Kontroler: Walidacja danych
+alt dane poprawne
+    Kontroler -> kontrolerDB: dodaj do bazy
+    Kontroler -> Monitor: POST /host
+	Monitor -> Monitor: Walidacja danych
+	alt dane poprane
+	    Monitor -> monitorDB: Dodaj do bazy
+	    Monitor --> Kontroler: status 201
+		Kontroler --> UI: status 201
+	else dane niepoprawne
+	    Monitor -> Kontroler: status 400
+		Kontroler --> UI: status 400
+	end
+else danie niepoprawne
+    Kontroler --> UI: status 400
+end
+
+@enduml
