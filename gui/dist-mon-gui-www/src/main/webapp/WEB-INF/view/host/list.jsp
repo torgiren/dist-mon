@@ -4,7 +4,7 @@
 
 <!DOCTYPE html>
 <t:layout>
-    <h2>List of hosts!</h2>
+    <h2>List of hosts</h2>
 
     <ul>
         <c:forEach var="host" items="${hosts}">

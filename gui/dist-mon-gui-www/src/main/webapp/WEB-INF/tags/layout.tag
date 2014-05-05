@@ -19,6 +19,9 @@
                     <a href="<c:url value="/host/list" />">Hosts</a>
                 </div>
                 <div class="left-menu-item">
+                    <a href="<c:url value="/service/list" />">Services</a>
+                </div>
+                <div class="left-menu-item">
                     <a href="<c:url value="/problem/list" />">Problems</a>
                 </div>
             </div>

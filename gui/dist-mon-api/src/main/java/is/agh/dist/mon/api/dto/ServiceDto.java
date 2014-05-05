@@ -13,7 +13,6 @@ public class ServiceDto {
     private int hard;
     private List<Integer> hosts;
     private int downtime;
-    private String url;
 
     public int getId() {
         return id;
@@ -86,13 +85,4 @@ public class ServiceDto {
     public void setDowntime(int downtime) {
         this.downtime = downtime;
     }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-    
 }

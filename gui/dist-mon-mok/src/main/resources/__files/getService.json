@@ -2,10 +2,10 @@
     "service":
             [{
                     "name": "Memory",
-                    "url": "/service/1"
+                    "id": 1
                 },
                 {
                     "name": "CPU",
-                    "url": "/service/3"
+                    "id": 3
                 }]
 }

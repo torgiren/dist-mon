@@ -4,11 +4,11 @@
 
 <!DOCTYPE html>
 <t:layout>
-    <h2>List of problems</h2>
+    <h2>List of services</h2>
 
     <ul>
-        <c:forEach var="problem" items="${problems}">
-            <li> <a href="<c:url value="/problem/${problem.id}" />">Problem ${problem.id}</a> </li>
+        <c:forEach var="service" items="${services}">
+            <li> <a href="<c:url value="/service/${service.id}" />">Service ${service.id} (${service.name})</a> </li>
         </c:forEach>
     </ul>
 </t:layout>
