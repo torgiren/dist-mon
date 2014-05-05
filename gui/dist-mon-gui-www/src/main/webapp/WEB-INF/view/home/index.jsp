@@ -4,5 +4,7 @@
 
 <!DOCTYPE html>
 <t:layout>
-    <h2>Hello world</h2>
+    <div class="center">
+        <img src="http://media2.giphy.com/media/Zo9ACzmJgoqRy/giphy.gif" />
+    </div>
 </t:layout>
