@@ -1,0 +1,11 @@
+{
+    "monitor":
+            {
+                "id": 1,
+                "name": "Monitor test",
+                "address": "127.0.0.1",
+                "hosts": [1,4,6],
+                "sync": 1,
+                "downtime": 0
+            }
+}

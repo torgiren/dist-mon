@@ -1,0 +1,7 @@
+{
+    "monitor":
+            [{
+                    "id": 1,
+                    "name": "Monitor test"
+                }]
+}

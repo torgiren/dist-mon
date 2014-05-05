@@ -24,6 +24,9 @@
                 <div class="left-menu-item">
                     <a href="<c:url value="/problem/list" />">Problems</a>
                 </div>
+                <div class="left-menu-item">
+                    <a href="<c:url value="/monitor/list" />">Monitors</a>
+                </div>
             </div>
             <div class="view-content">
                 <jsp:doBody />

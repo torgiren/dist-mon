@@ -39,3 +39,6 @@ body {
       text-align: center; }
       .content .view-content .details_table td:first-child {
         text-align: right; }
+
+.center {
+  text-align: center; }
