@@ -1,0 +1,9 @@
+{
+    "problem":
+            {
+                "id": 1,
+                "status": "ERROR",
+                "service": 1,
+                "host": 3
+            }
+}

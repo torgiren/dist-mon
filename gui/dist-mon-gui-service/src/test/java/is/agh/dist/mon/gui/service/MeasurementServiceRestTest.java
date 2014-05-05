@@ -7,7 +7,9 @@ import is.agh.dist.mon.api.dto.ServiceDto;
 import java.util.List;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +25,8 @@ public class MeasurementServiceRestTest {
     
     @BeforeClass
     public static void setup() {
-        wireMockServer = new WireMockServer(wireMockConfig().port(8909));
-        WireMock.configureFor("localhost", 8909);
+        wireMockServer = new WireMockServer(wireMockConfig().port(8809));
+        WireMock.configureFor("localhost", 8809);
         wireMockServer.start();
     }
     

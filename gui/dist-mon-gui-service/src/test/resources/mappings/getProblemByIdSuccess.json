@@ -1,12 +1,12 @@
 {
     "request": {
             "method": "GET",
-            "url": "/catalog/service"
+            "urlPattern": "/catalog/problem/[0-9]+"
     },
     
     "response": {
             "status": 200,
-            "bodyFileName": "getService.json",
+            "bodyFileName": "getProblemByIdSuccess.json",
             "headers": {
                     "Content-Type": "application/json"
             }

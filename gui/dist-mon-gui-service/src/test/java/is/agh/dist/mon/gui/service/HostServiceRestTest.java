@@ -6,6 +6,7 @@ import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMoc
 import is.agh.dist.mon.api.dto.HostDto;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,8 @@ public class HostServiceRestTest {
     
     @BeforeClass
     public static void setup() {
-        wireMockServer = new WireMockServer(wireMockConfig().port(8909));
-        WireMock.configureFor("localhost", 8909);
+        wireMockServer = new WireMockServer(wireMockConfig().port(8809));
+        WireMock.configureFor("localhost", 8809);
         wireMockServer.start();
     }
     
@@ -40,4 +41,12 @@ public class HostServiceRestTest {
         HostDto svc = hostService.findById(3);
     }
     
+    @Test
+    public void AddHostTest() {
+        HostDto hostDto = new HostDto();
+        hostDto.setDowntime(1);
+        hostDto.setAddress("192.168.1.2");
+        
+        hostService.add(hostDto);
+    }
 }

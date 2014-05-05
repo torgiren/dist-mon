@@ -4,11 +4,7 @@
                 "id": 4,
                 "name": "localhost",
                 "address": "127.0.0.1",
-                "services": [
-                    "/service/1",
-                    "/service/4",
-                    "/service/6"
-                ],
+                "services": [1,4,6],
                 "active": 1,
                 "downtime": 0
             }

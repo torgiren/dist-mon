@@ -33,6 +33,12 @@ public class HostServiceRest implements HostService {
         ResponseEntity<FindByIdResponse> response = restTemplate.getForEntity(catalogAddress + hostByIdQuery, FindByIdResponse.class, id);
         return response.getBody().getHost();
     }
+
+    @Override
+    public void add(HostDto host) {
+        ResponseEntity<AddHostResponse> response = restTemplate.postForEntity(catalogAddress + hostQuery, host, AddHostResponse.class);
+        
+    }
     
     private static class FindAllResponse {
         private List<HostDto> host;
@@ -56,5 +62,18 @@ public class HostServiceRest implements HostService {
         public void setHost(HostDto host) {
             this.host = host;
         }
+    }
+    
+    private static class AddHostResponse {
+        private HostDto host;
+
+        public HostDto getHost() {
+            return host;
+        }
+
+        public void setHost(HostDto host) {
+            this.host = host;
+        }
+
     }
 }

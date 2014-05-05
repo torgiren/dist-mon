@@ -1,11 +1,11 @@
 {
     "request": {
             "method": "POST",
-            "url": "/host"
+            "url": "/catalog/host"
     },
     
     "response": {
-            "status": 204,
+            "status": 201,
             "bodyFileName": "postHost.json",
             "headers": {
                     "Content-Type": "application/json"

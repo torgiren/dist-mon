@@ -6,4 +6,5 @@ import java.util.List;
 public interface HostService {
     public List<HostDto> findAll();
     public HostDto findById(int id);
+    public void add(HostDto host);
 }
