@@ -2,8 +2,6 @@ package is.agh.dist.mon.gui.service;
 
 import is.agh.dist.mon.api.dto.ProblemDto;
 import is.agh.dist.mon.api.service.ProblemService;
-import is.agh.dist.mon.gui.service.response.FindAllResponse;
-import is.agh.dist.mon.gui.service.response.FindByIdResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -28,18 +26,36 @@ public class ProblemServiceRest implements ProblemService {
     @Override
     public List<ProblemDto> findAll() {
         ResponseEntity<FindAll> response = restTemplate.getForEntity(catalogAddress + problemQuery, FindAll.class);
-        return response.getBody().getEntries();
+        return response.getBody().getProblem();
     }
 
     @Override
     public ProblemDto findById(int id) {
         ResponseEntity<FindById> response = restTemplate.getForEntity(catalogAddress + problemByIdQuery, FindById.class, id);
-        return response.getBody().getEntry();
+        return response.getBody().getProblem();
     }
 
-    private static class FindAll extends FindAllResponse<ProblemDto> {
+    private static class FindAll {
+        private List<ProblemDto> problem;
+
+        public List<ProblemDto> getProblem() {
+            return problem;
+        }
+
+        public void setProblem(List<ProblemDto> problem) {
+            this.problem = problem;
+        }
     }
 
-    private static class FindById extends FindByIdResponse<ProblemDto> {
+    private static class FindById {
+        private ProblemDto problem;
+
+        public ProblemDto getProblem() {
+            return problem;
+        }
+
+        public void setProblem(ProblemDto problem) {
+            this.problem = problem;
+        }
     }
 }

@@ -8,7 +8,7 @@ public class ServiceDto {
     private String name;
     private String command;
     private List<String> args;
-    private List<UserDto> notify;
+    private List<Integer> notify;
     private int freq;
     private int hard;
     private List<Integer> hosts;
@@ -47,11 +47,11 @@ public class ServiceDto {
         this.args = args;
     }
 
-    public List<UserDto> getNotify() {
+    public List<Integer> getNotify() {
         return notify;
     }
 
-    public void setNotify(List<UserDto> notify) {
+    public void setNotify(List<Integer> notify) {
         this.notify = notify;
     }
 

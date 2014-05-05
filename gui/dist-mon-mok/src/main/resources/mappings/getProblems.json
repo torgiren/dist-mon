@@ -1,7 +1,7 @@
 {
     "request": {
             "method": "GET",
-            "url": "/problem"
+            "url": "/catalog/problem"
     },
     
     "response": {

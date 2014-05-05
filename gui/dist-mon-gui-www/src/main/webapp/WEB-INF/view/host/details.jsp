@@ -4,17 +4,35 @@
 
 <!DOCTYPE html>
 <t:layout>
-    <h2>Host details!</h2>
-
-    <p> ${host.name} </p>
-    <p> ${host.address} </p>
-    <p> ${host.id} </p>
-    <p> ${host.downtime} </p>
-    <p> ${host.active} </p>
-    <p> ${host.url} </p>
-    
-    <h2> Monitors inside host </h2>
-    
-    
-    
+    <h2>Host ${host.id} - details</h2>
+    <table class="details_table">
+        <tbody>
+            <tr>
+                <td>Name:</td>
+                <td>${host.name}</td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td>${host.address}</td>
+            </tr>
+            <tr>
+                <td>Active:</td>
+                <td>${host.active}</td>
+            </tr>
+            <tr>
+                <td>Downtime:</td>
+                <td>${host.downtime}</td>
+            </tr>
+            <tr>
+                <td>Services:</td>
+                <td>
+                    <ul>
+                        <c:forEach var="service" items="${host.services}">
+                            <li> <a href="<c:url value="/service/${service}" />">Service ${service}</a> </li>
+                        </c:forEach>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </t:layout>

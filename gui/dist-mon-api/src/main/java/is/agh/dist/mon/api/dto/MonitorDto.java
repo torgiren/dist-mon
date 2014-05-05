@@ -7,7 +7,7 @@ public class MonitorDto {
     private int id;
     private String name;
     private String address;
-    private List<HostDto> hosts;
+    private List<Integer> hosts;
     private int sync;
     private String downtime;
 
@@ -35,11 +35,11 @@ public class MonitorDto {
         this.address = address;
     }
 
-    public List<HostDto> getHosts() {
+    public List<Integer> getHosts() {
         return hosts;
     }
 
-    public void setHosts(List<HostDto> hosts) {
+    public void setHosts(List<Integer> hosts) {
         this.hosts = hosts;
     }
 

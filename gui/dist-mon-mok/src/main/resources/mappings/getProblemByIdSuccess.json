@@ -1,7 +1,7 @@
 {
     "request": {
             "method": "GET",
-            "urlPattern": "/problem/[0-9]+"
+            "urlPattern": "/catalog/problem/[0-9]+"
     },
     
     "response": {
