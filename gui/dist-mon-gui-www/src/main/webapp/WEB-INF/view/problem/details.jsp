@@ -4,14 +4,37 @@
 
 <!DOCTYPE html>
 <t:layout>
-    <h2>Problem details!</h2>
-
-    <p> <a href="<c:url value="/service/${problem.service.id}" />"> ${problem.service.name} </a> </p>
-    <p> <a href="<c:url value="/host/${problem.host.id}" />"> ${problem.host.name} </a> </p>
-    <p> ${problem.id} </p>
-    <p> ${problem.status} </p>
-    <p> ${problem.value} </p>
-    <p> ${problem.start} </p>
-    <p> ${problem.stop} </p>
-    <p> ${problem.ack} </p>
+    <h2>Problem ${problem.id} - details</h2>
+    <table class="details_table">
+        <tbody>
+            <tr>
+                <td>Service:</td>
+                <td><a href="<c:url value="/service/${problem.service.id}" />"> ${problem.service.name} </a></td>
+            </tr>
+            <tr>
+                <td>Host:</td>
+                <td><a href="<c:url value="/host/${problem.host.id}" />"> ${problem.host.name} </a></td>
+            </tr>
+            <tr>
+                <td>Status:</td>
+                <td>${problem.status}</td>
+            </tr>
+            <tr>
+                <td>Value:</td>
+                <td>${problem.value}</td>
+            </tr>
+            <tr>
+                <td>Start:</td>
+                <td>${problem.start}</td>
+            </tr>
+            <tr>
+                <td>Stop:</td>
+                <td>${problem.stop}</td>
+            </tr>
+            <tr>
+                <td>Ack:</td>
+                <td>${problem.ack}</td>
+            </tr>
+        </tbody>
+    </table>
 </t:layout>

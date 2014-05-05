@@ -8,7 +8,7 @@
 
     <ul>
         <c:forEach var="problem" items="${problems}">
-            <li> <a href="<c:url value="/problem/${problem.id}" />"> ${problem.status} </a> </li>
+            <li> <a href="<c:url value="/problem/${problem.id}" />">Problem ${problem.id} (${problem.status})</a> </li>
         </c:forEach>
     </ul>
 </t:layout>

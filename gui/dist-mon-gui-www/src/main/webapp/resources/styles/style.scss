@@ -47,9 +47,21 @@ body {
   }
 
   .view-content {
-    margin: 214 0 24 0;
-    padding: 12px;
+    margin-left: 214px;
+    margin-right: 24px;
+    padding: 24px;
     background-color: darkkhaki;
+
+    .details_table {
+      td {
+        padding-left: 16px;
+        text-align: center;
+
+        &:first-child {
+          text-align: right;
+        }
+      }
+    }
   }
 }
 
