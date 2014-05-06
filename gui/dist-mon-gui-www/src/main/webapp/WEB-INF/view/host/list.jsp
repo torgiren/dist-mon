@@ -8,7 +8,7 @@
 
     <ul>
         <c:forEach var="host" items="${hosts}">
-            <li> <a href="<c:url value="/host/${host.id}" />">Host ${host.id} (${host.name})</a> </li>
+            <li> <a href="<c:url value="/host/${host.id}" />">Host ${host.id}</a> </li>
         </c:forEach>
     </ul>
 </t:layout>

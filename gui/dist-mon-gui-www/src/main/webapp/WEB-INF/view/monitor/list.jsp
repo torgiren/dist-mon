@@ -8,7 +8,7 @@
 
     <ul>
         <c:forEach var="monitor" items="${monitors}">
-            <li> <a href="<c:url value="/monitor/${monitor.id}" />">Monitor ${monitor.id} (${monitor.name})</a> </li>
+            <li> <a href="<c:url value="/monitor/${monitor.id}" />">Monitor ${monitor.id}</a> </li>
         </c:forEach>
     </ul>
 </t:layout>
