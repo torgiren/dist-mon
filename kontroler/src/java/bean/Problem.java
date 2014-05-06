@@ -11,7 +11,7 @@ package bean;
  *
  * @author admin
  */
-public class Problem extends BaseBean{
+public class Problem{
 
     public int getId() {
         return id;

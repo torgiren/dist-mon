@@ -7,13 +7,16 @@ package dao;
 
 
 import bean.GetAll;
+import bean.Ids;
 import bean.News;
+import Exceptions.NotFoundExcepiton;
 import bean.Person;
 import bean.Problem;
 import bean.Service;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 import javax.sql.DataSource;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -28,14 +31,14 @@ public class DAOImpl  implements MainDAO  {
  
     
     public void setDataSource(DataSource dataSource) { 
-    this.jdbcTemplate = new JdbcTemplate(dataSource); 
+        this.jdbcTemplate = new JdbcTemplate(dataSource); 
     } 
  
     
     @Override
     public boolean addProblem(Problem problem)
     {
-        String query = "INSERT INTO  problems(serviceId, hostId, status,"
+        String query = "INSERT INTO  problem(serviceId, hostId, status,"
                 + " value, start, stop, ack) VALUES (?,?,?,?,?,?,?)";
         try{
             jdbcTemplate.update(query, new Object[] { 
@@ -53,7 +56,7 @@ public class DAOImpl  implements MainDAO  {
     @Override
     public Problem[] getAllProblems()
     {
-        String query = "SELECT * FROM problems"; 
+        String query = "SELECT * FROM problem"; 
         List<Problem> problem = null;
         
         try { 
@@ -68,17 +71,17 @@ public class DAOImpl  implements MainDAO  {
     @Override
     public Problem getSpecifyProblem(int id) 
     {
-        String query = "SELECT * FROM problems WHERE ID="+id; 
+        String query = "SELECT * FROM problem WHERE ID="+id; 
 
-        List<Problem> list= null;
+        List<Problem> list;
         try { 
             list = jdbcTemplate.query(query, new BeanPropertyRowMapper(Problem.class));
         } catch (Exception ex) {
-            return null;
+            throw new NotFoundExcepiton();
         }
         
         if(list.isEmpty())
-            return null;
+            throw new NotFoundExcepiton();
         
         return list.get(0);
     }
@@ -99,20 +102,20 @@ public class DAOImpl  implements MainDAO  {
     }
     
     @Override
-    public GetAll[] getAll(String table)
+    public Ids[] getAll(String table)
     {
         String query = "SELECT id FROM " + table; 
-        List<GetAll> getAll = null;
-        
+        List<Ids> ids;
         try { 
-            getAll = jdbcTemplate.query(query, new BeanPropertyRowMapper(GetAll.class));
+            ids = jdbcTemplate.query(query, new BeanPropertyRowMapper(Ids.class));
         } catch (Exception ex){
             return null;
         }
-
-        return getAll.toArray(new GetAll[getAll.size()]);
+        GetAll ol =  new GetAll();
+        Ids[] o = ids.toArray(new Ids[ids.size()]);
+        return o;
     }
-
+    
     @Override
     public boolean addService(Service service) {
         String query = "INSERT INTO  service(name, command, args,"
@@ -133,8 +136,8 @@ public class DAOImpl  implements MainDAO  {
     }
 
     @Override
-    public boolean updateProblem(Problem problem) {
-        String query = "UPDATE  problems SET serviceId=?, hostId=?, status=?, " 
+    public void updateProblem(Problem problem) {
+        String query = "UPDATE  problem SET serviceId=?, hostId=?, status=?, " 
                 + "value=?, start=?, stop=?, ack=?  WHERE ID=?"; 
         try
         {
@@ -146,8 +149,7 @@ public class DAOImpl  implements MainDAO  {
             });
         }catch(Exception e)
         {
-            return false; 
+            throw new NotFoundExcepiton();
         }
-        return true;
     }
 }

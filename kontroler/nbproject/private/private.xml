@@ -6,8 +6,10 @@
             <file>file:/C:/Users/admin/Documents/studia/zespolowe/zes/src/java/dao/MainDAO.java</file>
             <file>file:/C:/Users/admin/Documents/studia/zespolowe/zes/src/java/service/UniversalService.java</file>
             <file>file:/C:/Users/admin/Documents/studia/zespolowe/zes/src/java/dao/DAOImpl.java</file>
-            <file>file:/C:/Users/admin/Documents/studia/zespolowe/zes/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/admin/Documents/studia/zespolowe/zes/src/java/bean/Problem.java</file>
+            <file>file:/C:/Users/admin/Documents/studia/zespolowe/zes/src/java/bean/News.java</file>
             <file>file:/C:/Users/admin/Documents/studia/zespolowe/zes/src/java/controller/IndexController.java</file>
+            <file>file:/C:/Users/admin/Documents/studia/zespolowe/zes/src/java/bean/User.java</file>
             <file>file:/C:/Users/admin/Documents/studia/zespolowe/zes/web/WEB-INF/applicationContext.xml</file>
         </group>
     </open-files>

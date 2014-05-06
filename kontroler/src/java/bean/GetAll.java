@@ -10,14 +10,15 @@ package bean;
  *
  * @author admin
  */
-public class GetAll {
-    private int id;
 
-    public int getId() {
-        return id;
+public class GetAll {
+    private Ids problem[];
+
+    public Ids[] getProblem() {
+        return problem;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setProblem(Ids[] problem) {
+        this.problem = problem;
     }
 }

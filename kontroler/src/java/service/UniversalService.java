@@ -4,11 +4,13 @@
  */
 package service;
 
+import bean.AllServices;
 import bean.GetAll;
 import bean.LoginWrapper;
 import bean.News;
 import bean.Person;
 import bean.Problem;
+import bean.ProblemMain;
 import bean.Service;
 import bean.User;
 import dao.MainDAO;
@@ -37,99 +39,33 @@ public class UniversalService {
         this.personDAO = personDAO;
     }
 
-    public String newProblem(Problem problem) {        
-        if(this.personDAO.addProblem(problem)){
-            return "{'status': 200}";
-        }
-        return "{'status': 404}";
+    public void newProblem(Problem problem) {        
+        this.personDAO.addProblem(problem);
      }
-    public String newService(Service service) {
-        if(this.personDAO.addService(service)){
-            return "{'status': 200}";
-        }
-        return "{'status': 404}";
+    public void newService(Service service) {
+        this.personDAO.addService(service);
+    }
+
+     public void updateProblem(Problem problem){
+        this.personDAO.updateProblem(problem);
+    }
+
+    public GetAll getAll(){
+        GetAll getAll = new GetAll();
+        getAll.setProblem(this.personDAO.getAll("problem"));
+        return getAll;
+    }
+    public AllServices getAllServices(){
+        AllServices allServices = new AllServices();
+        allServices.setService(this.personDAO.getAll("service"));
+        return allServices;
     }
     
-    public String updateProblem(Problem problem){
-        if(this.personDAO.updateProblem(problem)){
-            return "{'status': 200}";
-        }
-        return "{'status': 404}";
-    }
-    public String getAllProblems() {
-      Problem[] problems = this.personDAO.getAllProblems();
-      
-      int size = problems.length;
-      int i = 0;
-      String[] json = new String[size]; 
-      for (Problem problem : problems){
-          json[i++] = "{" + " 'id': '" + problem.getId() + "' } ";
-      }
-      return parseJson("problem", json);
+    public ProblemMain getSpecifyProblem(int id){
+        Problem pr = this.personDAO.getSpecifyProblem(id);
+        ProblemMain main = new ProblemMain();
+        main.setProblem(pr);
+        return main;
     }
     
-    public String getAll(String table){
-      GetAll[] ids = this.personDAO.getAll(table);
-      
-      int size = ids.length;
-      int i = 0;
-      String[] json = new String[size]; 
-      for (GetAll id : ids){
-          json[i++] = "{" + " 'id': '" + id.getId() + "' } ";
-      }
-      return parseJson("problem", json);
-    }
-    
-    public String getSpecifyProblem(int id){
-        Problem problem = this.personDAO.getSpecifyProblem(id);
-        String json = "";
-        
-        if (problem != null)
-        {
-            json = problem.getJsonRow();
-        }
-        
-        
-        json = paresJson("problem", json);
-        return json;
-    }
-    
-    private String paresJson(String name, String row)
-    {
-        if(row.isEmpty())
-        {
-           return parseJson(name, new String[] {}); 
-        }
-        return parseJson(name, new String[] {row});
-    }
-    
-    private String parseJson(String name, String []rows){
-        String jsonString = "{'" + name + "':";
-        int size = rows.length;
-        int i = 0;
-        String statusCode = "200";
-        if(rows.length == 0)
-        {
-            jsonString += "{}";
-            statusCode = "404";
-        }
-        else if(rows.length == 1)
-        {
-            jsonString += rows[0];
-        }
-        else
-        {
-            jsonString += "[";
-            for(String row : rows)
-            {
-                jsonString += row;
-                if(++i != size) jsonString += ",";
-            }
-            jsonString += "]";
-        }
-        jsonString += ", 'status':" + statusCode;
-        jsonString += "}";
-        
-        return jsonString;
-    }
 }

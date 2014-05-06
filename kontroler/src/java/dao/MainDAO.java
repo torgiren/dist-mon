@@ -4,6 +4,7 @@
  */
 package dao;
 import bean.GetAll;
+import bean.Ids;
 import bean.Problem;
 import bean.Service;
 /**
@@ -12,9 +13,9 @@ import bean.Service;
  */
 public interface MainDAO {
     public boolean addProblem(Problem problem);
-    public boolean updateProblem(Problem problem);
+    public void updateProblem(Problem problem);
     Problem[] getAllProblems();
-    GetAll[] getAll(String table);
+    public Ids[] getAll(String table);
     public Problem getSpecifyProblem(int id);
     public Service[] getAllServices();
     

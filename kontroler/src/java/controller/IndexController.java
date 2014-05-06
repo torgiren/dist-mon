@@ -4,21 +4,30 @@
  */
 package controller;
 
+import bean.AllServices;
+import bean.GetAll;
 import bean.LoginWrapper;
 import bean.News;
 import bean.Person;
 import bean.Problem;
+import bean.ProblemMain;
 import bean.Service;
 import bean.User;
+import bean.json.ServiceMain;
+import java.lang.annotation.Annotation;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import service.UniversalService;
 
@@ -52,69 +61,50 @@ public class IndexController{
     public ModelAndView start()
     {
         ModelAndView  mv = new ModelAndView("index");
-    //    News news[] = universalService.getNews();
-        
-       
-   //     mv.addObject("titles", getShortTitles(news));
         mv.addObject("title", "Witamy na stronie stowarzyszenia");
         mv.addObject("news", "Ząb zupa zębowa");
         return mv;
     }
-    @RequestMapping(value="/problem", method = RequestMethod.GET)
-    public ModelAndView getProblems() {
-        ModelAndView mav = new ModelAndView("login", "user", new User());
-        
-      //  String data = universalService.getAllProblems();
-        String data = universalService.getAll("problems");
-        mav.addObject(("message"), data);
-        return mav;
-    }
     
+    @RequestMapping(value="/problem", method = RequestMethod.GET)
+    public @ResponseBody GetAll getProblems() {
+        GetAll data = universalService.getAll();
+        return data;
+    }
+   
     @RequestMapping(value="/problem", method = RequestMethod.POST)
-    public ModelAndView newProblem(@ModelAttribute("problem") Problem problem) {
+    public @ResponseBody GetAll newProblem(@RequestBody ProblemMain problem) {
         ModelAndView mav = new ModelAndView("login", "user", new User());
-        String data = universalService.newProblem(problem);
-        mav.addObject(("message"), data);
-        return mav;
+        universalService.newProblem(problem.getProblem());
+        return new GetAll();
     }
     
     @RequestMapping(value = "/problem/{params}", method = RequestMethod.GET)
-    public ModelAndView getProblem(@PathVariable String params)
+    public @ResponseBody ProblemMain getProblem(@PathVariable String params)
     {
         int id = Integer.parseInt(params);
-        ModelAndView mav = new ModelAndView("login", "user", new User());
-        String data = universalService.getSpecifyProblem(id);
-        mav.addObject(("message"), data);
-        return mav;
+        return universalService.getSpecifyProblem(id);
     }
     
     @RequestMapping(value = "/problem/{params}", method = RequestMethod.POST)
-    public ModelAndView updateProblem(@PathVariable String params, 
+    public @ResponseBody ResponseEntity<String> updateProblem(@PathVariable String params, 
             @ModelAttribute("problem") Problem problem)
     {
         int id = Integer.parseInt(params);
-        ModelAndView mav = new ModelAndView("login", "user", new User());
-    //    problem.setId(id);
-        String data = universalService.updateProblem(problem);
-        mav.addObject(("message"), data);
-        return mav;
+        universalService.updateProblem(problem);
+        return new ResponseEntity<String>("",HttpStatus.OK);
     }
     
         @RequestMapping(value = "/service", method = RequestMethod.GET)
-    public ModelAndView getAllServices()
-    {
-        ModelAndView mav = new ModelAndView("login", "user", new User());
-        
-        String data = universalService.getAll("service");
-        mav.addObject(("message"), data);
-        return mav;
+    public @ResponseBody AllServices getAllServices()
+    {   
+        return universalService.getAllServices();
     }
     
     @RequestMapping(value="/service", method = RequestMethod.POST)
-    public ModelAndView addService(@ModelAttribute("service") Service service) {
+    public @ResponseBody ResponseEntity<String> addService(@RequestBody ServiceMain service) {
         ModelAndView mav = new ModelAndView("login", "user", new User());
-        String data = universalService.newService(service);
-        mav.addObject(("message"), data);
-        return mav;
+        universalService.newService(service.getService());
+        return new ResponseEntity<String>("",HttpStatus.OK);
     }
 }
