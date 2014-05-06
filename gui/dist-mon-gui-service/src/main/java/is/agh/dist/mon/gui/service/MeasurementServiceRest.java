@@ -2,12 +2,13 @@ package is.agh.dist.mon.gui.service;
 
 import is.agh.dist.mon.api.dto.ServiceDto;
 import is.agh.dist.mon.api.service.MeasurementService;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
 
 @Service
 public class MeasurementServiceRest implements MeasurementService {
@@ -37,6 +38,11 @@ public class MeasurementServiceRest implements MeasurementService {
         ResponseEntity<FindByIdResponse> response = restTemplate.getForEntity(catalogAddress + serviceByIdQuery, FindByIdResponse.class, id);
         return response.getBody().getService();
     }
+
+    @Override
+    public void add(ServiceDto service) {
+        ResponseEntity<AddServiceResponse> response = restTemplate.postForEntity(catalogAddress + serviceQuery, service, AddServiceResponse.class);
+    }
     
     private static class FindAllResponse {
         private List<ServiceDto> service;
@@ -60,7 +66,17 @@ public class MeasurementServiceRest implements MeasurementService {
         public void setService(ServiceDto service) {
             this.service = service;
         }
-        
-        
+    }
+
+    private static class AddServiceResponse {
+        private ServiceDto service;
+
+        public ServiceDto getService() {
+            return service;
+        }
+
+        public void setService(ServiceDto service) {
+            this.service = service;
+        }
     }
 }

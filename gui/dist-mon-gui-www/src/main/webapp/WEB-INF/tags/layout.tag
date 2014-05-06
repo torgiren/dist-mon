@@ -29,9 +29,12 @@
                 </div>
                 <div style="margin-top: 15px; background-color: #FFF8DC">
                     &nbsp;
-                </div>  
+                </div>
                 <div class="left-menu-item" >
                     <a href="<c:url value="/host/add" />">Add host</a>
+                </div>
+                <div class="left-menu-item" >
+                    <a href="<c:url value="/service/add" />">Add service</a>
                 </div>
             </div>
             <div class="view-content">

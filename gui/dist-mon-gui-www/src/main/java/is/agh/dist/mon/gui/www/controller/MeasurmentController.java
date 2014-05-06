@@ -4,8 +4,10 @@ import is.agh.dist.mon.api.dto.ServiceDto;
 import is.agh.dist.mon.api.service.MeasurementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -32,4 +34,18 @@ public class MeasurmentController {
         }
     }
 
+    @RequestMapping(value = "/service/add")
+    public ModelAndView addAction() {
+        return new ModelAndView("service/add", "service", new ServiceDto());
+    }
+
+    @RequestMapping(value = "/service/add", method = RequestMethod.POST)
+    public ModelAndView addAction(@ModelAttribute("service") ServiceDto service) {
+        try {
+            measurementService.add(service);
+            return new ModelAndView("redirect:/service/list");
+        } catch (Exception exc) {
+            return new ModelAndView("error", "exception", exc);
+        }
+    }
 }

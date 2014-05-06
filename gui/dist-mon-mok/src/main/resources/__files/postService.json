@@ -1,0 +1,15 @@
+{
+    "service":
+    {
+        "id": 5,
+        "name": "http",
+        "command": "check_http",
+        "args": [
+            "-v www.test.pl"
+        ],
+        "freq": 30,
+        "hard": 3,
+        "hosts" : [2,4,6,7],
+        "downtime": 0
+    }
+}

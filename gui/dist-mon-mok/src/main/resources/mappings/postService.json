@@ -1,0 +1,14 @@
+{
+    "request": {
+            "method": "POST",
+            "url": "/catalog/service"
+    },
+    
+    "response": {
+            "status": 204,
+            "bodyFileName": "postService.json",
+            "headers": {
+                    "Content-Type": "application/json"
+            }
+    }
+}
