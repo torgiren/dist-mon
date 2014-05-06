@@ -1,7 +1,9 @@
 package is.agh.dist.mon.gui.www.controller;
 
 import is.agh.dist.mon.api.dto.HostDto;
+import is.agh.dist.mon.api.dto.ServiceDto;
 import is.agh.dist.mon.api.service.HostService;
+import is.agh.dist.mon.api.service.MeasurementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Collection;
 import java.util.List;
 
 @Controller
@@ -17,6 +20,8 @@ public class HostController {
 
     @Autowired
     private HostService hostService;
+    @Autowired
+    private MeasurementService measurementService;
 
     @RequestMapping(value = "/host/list")
     public ModelAndView listAction() {
@@ -36,7 +41,12 @@ public class HostController {
 
     @RequestMapping(value = "/host/add")
     public ModelAndView addAction() {
-        return new ModelAndView("host/add", "host", new HostDto());
+        ModelAndView modelAndView = new ModelAndView("host/add", "host", new HostDto());
+
+        Collection<ServiceDto> services = measurementService.findAll();
+        modelAndView.addObject("availableServices", services);
+
+        return modelAndView;
     }
 
     @RequestMapping(value = "/host/add", method = RequestMethod.POST)

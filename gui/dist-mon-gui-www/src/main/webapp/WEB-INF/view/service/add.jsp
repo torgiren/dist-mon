@@ -11,24 +11,28 @@
         <table class="details_table">
             <tbody>
                 <tr>
-                    <td>Name:</td>
-                    <td> <input path="name" /> </td>
+                    <td><form:label path="name">Name:</form:label></td>
+                    <td><form:input type="text" path="name" /></td>
                 </tr>
                 <tr>
-                    <td>Command:</td>
-                    <td><input path="command" /></td>
+                    <td><form:label path="command">Command:</form:label></td>
+                    <td><form:input type="text" path="command" /></td>
                 </tr>
                 <tr>
-                    <td>Freq:</td>
-                    <td><input path="freq" /></td>
+                    <td><form:label path="freq">Freq:</form:label></td>
+                    <td><form:input type="text" path="freq" /></td>
                 </tr>
                 <tr>
-                    <td>Hard:</td>
-                    <td><input path="hard" /></td>
+                    <td><form:label path="hard">Hard:</form:label></td>
+                    <td><form:input type="text" path="hard" /></td>
                 </tr>
                 <tr>
-                    <td>Downtime:</td>
-                    <td><input path="downtime" /></td>
+                    <td><form:label path="hosts">Hosts:</form:label></td>
+                    <td><form:select multiple="true" path="hosts" items="${availableHosts}" itemLabel="name" itemValue="id" /></td>
+                </tr>
+                <tr>
+                    <td><form:label path="downtime">Downtime:</form:label></td>
+                    <td><form:input type="text" path="downtime" /></td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="submit" value="Add" /></td>

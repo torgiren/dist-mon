@@ -11,20 +11,24 @@
         <table class="details_table">
             <tbody>
                 <tr>
-                    <td>Name:</td>
-                    <td> <input path="name" /> </td>
+                    <td><form:label path="name">Name:</form:label></td>
+                    <td><form:input type="text" path="name" /></td>
                 </tr>
                 <tr>
-                    <td>Address:</td>
-                    <td><input path="address" /></td>
+                    <td><form:label path="address">Address:</form:label></td>
+                    <td><form:input type="text" path="address" /></td>
                 </tr>
                 <tr>
-                    <td>Sync:</td>
-                    <td><input path="sync" /></td>
+                    <td><form:label path="hosts">Hosts:</form:label></td>
+                    <td><form:select multiple="true" path="hosts" items="${availableHosts}" itemLabel="name" itemValue="id" /></td>
                 </tr>
                 <tr>
-                    <td>Downtime:</td>
-                    <td><input path="downtime" /></td>
+                    <td><form:label path="sync">Sync:</form:label></td>
+                    <td><form:input type="text" path="sync" /></td>
+                </tr>
+                <tr>
+                    <td><form:label path="downtime">Downtime:</form:label></td>
+                    <td><form:input type="text" path="downtime" /></td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="submit" value="Add" /></td>
