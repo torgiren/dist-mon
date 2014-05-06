@@ -36,6 +36,9 @@
                 <div class="left-menu-item" >
                     <a href="<c:url value="/service/add" />">Add service</a>
                 </div>
+                <div class="left-menu-item" >
+                    <a href="<c:url value="/monitor/add" />">Add monitor</a>
+                </div>
             </div>
             <div class="view-content">
                 <jsp:doBody />

@@ -1,0 +1,14 @@
+{
+    "request": {
+            "method": "POST",
+            "url": "/catalog/monitor"
+    },
+    
+    "response": {
+            "status": 204,
+            "bodyFileName": "postMonitor.json",
+            "headers": {
+                    "Content-Type": "application/json"
+            }
+    }
+}

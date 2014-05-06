@@ -34,6 +34,11 @@ public class MonitorServiceRest implements MonitorService {
         ResponseEntity<FindByIdResponse> response = restTemplate.getForEntity(catalogAddress + monitorByIdQuery, FindByIdResponse.class, id);
         return response.getBody().getMonitor();
     }
+
+    @Override
+    public void add(MonitorDto monitor) {
+        ResponseEntity<AddResponse> response = restTemplate.postForEntity(catalogAddress + monitorQuery, monitor, AddResponse.class);
+    }
     
     private static class FindAllResponse {
         private List<MonitorDto> monitor;
@@ -48,6 +53,18 @@ public class MonitorServiceRest implements MonitorService {
     }
 
     private static class FindByIdResponse {
+        private MonitorDto monitor;
+
+        public MonitorDto getMonitor() {
+            return monitor;
+        }
+
+        public void setMonitor(MonitorDto monitor) {
+            this.monitor = monitor;
+        }
+    }
+
+    private static class AddResponse {
         private MonitorDto monitor;
 
         public MonitorDto getMonitor() {

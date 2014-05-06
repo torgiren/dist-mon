@@ -7,4 +7,5 @@ import java.util.List;
 public interface MonitorService {
     public List<MonitorDto> findAll();
     public MonitorDto findById(int id);
+    public void add(MonitorDto monitor);
 }
