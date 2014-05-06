@@ -9,7 +9,6 @@ import bean.News;
 import bean.Person;
 import bean.Problem;
 import bean.Service;
-import bean.Ses;
 import bean.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -34,9 +33,6 @@ public class IndexController{
          
     @Autowired
     private UniversalService universalService; 
-    
-    @Autowired
-    private Ses ses;
     
     /**
      * 
@@ -67,15 +63,18 @@ public class IndexController{
     @RequestMapping(value="/problem", method = RequestMethod.GET)
     public ModelAndView getProblems() {
         ModelAndView mav = new ModelAndView("login", "user", new User());
-        mav.addObject(("message"), "wiadomosc");
+        
+      //  String data = universalService.getAllProblems();
+        String data = universalService.getAll("problems");
+        mav.addObject(("message"), data);
         return mav;
     }
     
     @RequestMapping(value="/problem", method = RequestMethod.POST)
     public ModelAndView newProblem(@ModelAttribute("problem") Problem problem) {
         ModelAndView mav = new ModelAndView("login", "user", new User());
-        mav.addObject(("message"), "wiadomosc");
-        universalService.getProblem(1);
+        String data = universalService.newProblem(problem);
+        mav.addObject(("message"), data);
         return mav;
     }
     
@@ -84,16 +83,20 @@ public class IndexController{
     {
         int id = Integer.parseInt(params);
         ModelAndView mav = new ModelAndView("login", "user", new User());
-        mav.addObject(("message"), "wiadomosc" + params);
+        String data = universalService.getSpecifyProblem(id);
+        mav.addObject(("message"), data);
         return mav;
     }
     
     @RequestMapping(value = "/problem/{params}", method = RequestMethod.POST)
-    public ModelAndView updateProblem(@PathVariable String params)
+    public ModelAndView updateProblem(@PathVariable String params, 
+            @ModelAttribute("problem") Problem problem)
     {
         int id = Integer.parseInt(params);
         ModelAndView mav = new ModelAndView("login", "user", new User());
-        mav.addObject(("message"), "wiadomosc" + params);
+    //    problem.setId(id);
+        String data = universalService.updateProblem(problem);
+        mav.addObject(("message"), data);
         return mav;
     }
     
@@ -101,30 +104,17 @@ public class IndexController{
     public ModelAndView getAllServices()
     {
         ModelAndView mav = new ModelAndView("login", "user", new User());
-        mav.addObject(("message"), "wiadomosc" + "servisy");
+        
+        String data = universalService.getAll("service");
+        mav.addObject(("message"), data);
         return mav;
     }
     
     @RequestMapping(value="/service", method = RequestMethod.POST)
     public ModelAndView addService(@ModelAttribute("service") Service service) {
         ModelAndView mav = new ModelAndView("login", "user", new User());
-        mav.addObject(("message"), "service");
+        String data = universalService.newService(service);
+        mav.addObject(("message"), data);
         return mav;
     }
-    /*
-            @RequestMapping(value = "/service", method = RequestMethod.GET)
-    public ModelAndView getAllServices()
-    {
-        ModelAndView mav = new ModelAndView("login", "user", new User());
-        mav.addObject(("message"), "wiadomosc" + "servisy");
-        return mav;
-    }
-    
-    @RequestMapping(value="/service", method = RequestMethod.POST)
-    public ModelAndView addService(@ModelAttribute("service") Service service) {
-        ModelAndView mav = new ModelAndView("login", "user", new User());
-        mav.addObject(("message"), "service");
-        return mav;
-    }
-    */
 }

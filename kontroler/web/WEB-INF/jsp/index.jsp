@@ -11,10 +11,14 @@
     </head>
     <body>
         <form action="/zes/problem" method="POST">
-            <input type="text" name="id"/>
-            <input type="text" name="hostId"/>
-            <input type="text" name="status"/>
-            <input type="text" name="value"/>
+            <input type="text" value="2" name="id" value="2"/>
+            <input type="text" value="32" name="serviceId"/>
+            <input type="text" value="32" name="hostId"/>
+            <input type="text" value="status" name="status"/>
+            <input type="text" value="32" name="value"/>
+            <input type="text" value="start" name="start"/>
+            <input type="text" value="start" name="stop"/>
+            <input type="text" value="2" name="ack" />
             <button>addProblem</button>
         </form>
         
@@ -28,8 +32,9 @@
             <button>AddService</button>
        </form>
         
-        <form action="/zes/problem/2" method="POST">
+        <form action="/zes/problem/1" method="POST">
             <input type="text" value="2" name="id" value="2"/>
+            <input type="text" value="32" name="serviceId"/>
             <input type="text" value="32" name="hostId"/>
             <input type="text" value="status" name="status"/>
             <input type="text" value="32" name="value"/>

@@ -6,11 +6,12 @@
 
 package bean;
 
+
 /**
  *
  * @author admin
  */
-public class Problem {
+public class Problem extends BaseBean{
 
     public int getId() {
         return id;
@@ -67,7 +68,18 @@ public class Problem {
     public void setAck(int ack) {
         this.ack = ack;
     }
+    
+    public int getServiceId() {
+        return serviceId;
+    }
+
+    public void setServiceId(int serviceId) {
+        this.serviceId = serviceId;
+    }
+    
+    
    int id;
+   int serviceId;
    int hostId;
    String status;
    int value;
