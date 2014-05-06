@@ -6,7 +6,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="<c:url value="/resources/styles/style.css" />" rel="stylesheet" />
-        
+
         <title>dist-mon www</title>
     </head>
     <body>
@@ -26,6 +26,12 @@
                 </div>
                 <div class="left-menu-item">
                     <a href="<c:url value="/monitor/list" />">Monitors</a>
+                </div>
+                <div style="margin-top: 15px; background-color: #FFF8DC">
+                    &nbsp;
+                </div>  
+                <div class="left-menu-item" >
+                    <a href="<c:url value="/host/add" />">Add host</a>
                 </div>
             </div>
             <div class="view-content">

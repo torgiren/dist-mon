@@ -2,7 +2,6 @@ package is.agh.dist.mon.gui.www.controller;
 
 import is.agh.dist.mon.api.dto.HostDto;
 import is.agh.dist.mon.api.service.HostService;
-import is.agh.dist.mon.gui.www.model.AddHost;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
