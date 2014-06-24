@@ -5,8 +5,8 @@ import java.util.Date;
 public class ProblemDto {
 
     private int id;
-    private Integer service;
-    private Integer host;
+    private Integer serviceId;
+    private Integer hostId;
     private String status;
     private String value;
     private Date start;
@@ -22,19 +22,19 @@ public class ProblemDto {
     }
 
     public Integer getService() {
-        return service;
+        return serviceId;
     }
 
     public void setService(Integer service) {
-        this.service = service;
+        this.serviceId = service;
     }
 
     public Integer getHost() {
-        return host;
+        return hostId;
     }
 
     public void setHost(Integer host) {
-        this.host = host;
+        this.hostId = host;
     }
 
     public String getStatus() {

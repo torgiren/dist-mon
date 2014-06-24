@@ -23,10 +23,6 @@
                     <td><form:input type="text" path="sync" /></td>
                 </tr>
                 <tr>
-                    <td><form:label path="downtime">Downtime:</form:label></td>
-                    <td><form:input type="text" path="downtime" /></td>
-                </tr>
-                <tr>
                     <td colspan="2"><input type="submit" value="Add" /></td>
                 </tr>
             </tbody>

@@ -8,8 +8,6 @@ public class HostDto {
     private String name;
     private String address;
     private Integer monitor;
-    private List<Integer> notify;
-    private List<Integer> services;
     private boolean active;
     private int downtime;
     
@@ -43,22 +41,6 @@ public class HostDto {
 
     public void setMonitor(Integer monitor) {
         this.monitor = monitor;
-    }
-
-    public List<Integer> getNotify() {
-        return notify;
-    }
-
-    public void setNotify(List<Integer> notify) {
-        this.notify = notify;
-    }
-
-    public List<Integer> getServices() {
-        return services;
-    }
-
-    public void setServices(List<Integer> services) {
-        this.services = services;
     }
 
     public boolean isActive() {

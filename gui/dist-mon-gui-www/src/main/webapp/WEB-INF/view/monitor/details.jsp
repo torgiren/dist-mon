@@ -20,10 +20,6 @@
                 <td>${monitor.sync}</td>
             </tr>
             <tr>
-                <td>Downtime:</td>
-                <td>${monitor.downtime}</td>
-            </tr>
-            <tr>
                 <td>Hosts:</td>
                 <td>
                     <ul>

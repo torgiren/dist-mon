@@ -37,7 +37,7 @@ public class MonitorServiceRest implements MonitorService {
 
     @Override
     public void add(MonitorDto monitor) {
-        ResponseEntity<AddResponse> response = restTemplate.postForEntity(catalogAddress + monitorQuery, monitor, AddResponse.class);
+        restTemplate.postForLocation(catalogAddress + monitorQuery, monitor);
     }
     
     private static class FindAllResponse {

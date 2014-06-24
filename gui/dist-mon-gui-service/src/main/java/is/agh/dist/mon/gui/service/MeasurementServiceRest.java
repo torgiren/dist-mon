@@ -41,7 +41,7 @@ public class MeasurementServiceRest implements MeasurementService {
 
     @Override
     public void add(ServiceDto service) {
-        ResponseEntity<AddServiceResponse> response = restTemplate.postForEntity(catalogAddress + serviceQuery, service, AddServiceResponse.class);
+        restTemplate.postForLocation(catalogAddress + serviceQuery, service);
     }
     
     private static class FindAllResponse {

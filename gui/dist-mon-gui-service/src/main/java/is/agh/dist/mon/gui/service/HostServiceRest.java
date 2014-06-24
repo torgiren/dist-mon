@@ -36,8 +36,7 @@ public class HostServiceRest implements HostService {
 
     @Override
     public void add(HostDto host) {
-        ResponseEntity<AddHostResponse> response = restTemplate.postForEntity(catalogAddress + hostQuery, host, AddHostResponse.class);
-        
+        restTemplate.postForLocation(catalogAddress + hostQuery, host);
     }
     
     private static class FindAllResponse {

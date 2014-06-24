@@ -7,9 +7,7 @@ public class MonitorDto {
     private int id;
     private String name;
     private String address;
-    private List<Integer> hosts;
     private int sync;
-    private String downtime;
 
     public int getId() {
         return id;
@@ -35,14 +33,6 @@ public class MonitorDto {
         this.address = address;
     }
 
-    public List<Integer> getHosts() {
-        return hosts;
-    }
-
-    public void setHosts(List<Integer> hosts) {
-        this.hosts = hosts;
-    }
-
     public int getSync() {
         return sync;
     }
@@ -50,14 +40,5 @@ public class MonitorDto {
     public void setSync(int sync) {
         this.sync = sync;
     }
-
-    public String getDowntime() {
-        return downtime;
-    }
-
-    public void setDowntime(String downtime) {
-        this.downtime = downtime;
-    }
-    
     
 }
