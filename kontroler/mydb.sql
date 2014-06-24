@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2014 at 12:28 AM
+-- Generation Time: Jun 24, 2014 at 11:57 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -28,12 +28,20 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `host` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `nazwa` varchar(20) COLLATE utf8_polish_ci NOT NULL,
+  `name` varchar(20) COLLATE utf8_polish_ci NOT NULL,
   `address` varchar(20) COLLATE utf8_polish_ci NOT NULL,
   `active` int(11) NOT NULL,
   `downtime` int(11) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `host`
+--
+
+INSERT INTO `host` (`ID`, `name`, `address`, `active`, `downtime`) VALUES
+(1, 'test', '123.233.123.234', 1, 0),
+(2, 'test2', '212.231.111.111', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -56,11 +64,21 @@ CREATE TABLE IF NOT EXISTS `measurement` (
 --
 
 CREATE TABLE IF NOT EXISTS `monitor` (
-  `ID` int(11) NOT NULL,
-  `nazwa` varchar(30) COLLATE utf8_polish_ci NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) COLLATE utf8_polish_ci NOT NULL,
   `address` varchar(30) COLLATE utf8_polish_ci NOT NULL,
-  `sync` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+  `sync` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `monitor`
+--
+
+INSERT INTO `monitor` (`id`, `name`, `address`, `sync`) VALUES
+(1, 'monitor1', 'monitor1.address', 3),
+(2, 'monitor1', 'monitor1.address', 0),
+(3, 'asdasd', 'asdasd', 3);
 
 -- --------------------------------------------------------
 
@@ -72,6 +90,28 @@ CREATE TABLE IF NOT EXISTS `monitorhosts` (
   `MonitorID` int(11) NOT NULL,
   `HostId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Dumping data for table `monitorhosts`
+--
+
+INSERT INTO `monitorhosts` (`MonitorID`, `HostId`) VALUES
+(0, 2),
+(0, 2),
+(0, 2),
+(0, 1),
+(0, 2),
+(0, 2),
+(0, 1),
+(0, 1),
+(0, 2),
+(0, 2),
+(0, 1),
+(0, 1),
+(0, 1),
+(0, 1),
+(0, 1),
+(0, 1);
 
 -- --------------------------------------------------------
 
@@ -89,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `problem` (
   `stop` varchar(20) COLLATE utf8_polish_ci NOT NULL,
   `ack` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `problem`
@@ -100,7 +140,8 @@ INSERT INTO `problem` (`id`, `serviceId`, `hostId`, `status`, `value`, `start`, 
 (4, 32, 32, 'status', 32, 'start', 'start', 2),
 (5, 32, 32, 'status', 32, 'start', 'start', 2),
 (6, 32, 32, 'status', 32, 'start', 'start', 2),
-(7, 32, 32, 'status', 32, 'start', 'start', 2);
+(7, 32, 32, 'status', 32, 'start', 'start', 2),
+(8, 3, 3, 'dsda', 3, 'asda', 'assa', 3);
 
 -- --------------------------------------------------------
 
@@ -139,6 +180,14 @@ CREATE TABLE IF NOT EXISTS `servicehost` (
   `ServiceID` int(11) NOT NULL,
   `HostID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Dumping data for table `servicehost`
+--
+
+INSERT INTO `servicehost` (`ServiceID`, `HostID`) VALUES
+(1, 1),
+(1, 2);
 
 -- --------------------------------------------------------
 
