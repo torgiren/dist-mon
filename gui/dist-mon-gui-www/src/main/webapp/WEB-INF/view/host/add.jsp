@@ -19,6 +19,10 @@
                     <td><form:input type="text" path="address" /></td>
                 </tr>
                 <tr>
+                    <td><form:label path="monitor">Monitor:</form:label></td>
+                    <td><form:select multiple="false" path="monitor" items="${availableMonitors}" itemLabel="name" itemValue="id" /></td>
+                </tr>
+                <tr>
                     <td><form:label path="services">Services:</form:label></td>
                     <td><form:select multiple="true" path="services" items="${availableServices}" itemLabel="name" itemValue="id" /></td>
                 </tr>

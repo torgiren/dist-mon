@@ -7,6 +7,7 @@ public class HostDto {
     private int id;
     private String name;
     private String address;
+    private Integer monitor;
     private List<Integer> notify;
     private List<Integer> services;
     private boolean active;
@@ -34,6 +35,14 @@ public class HostDto {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public Integer getMonitor() {
+        return monitor;
+    }
+
+    public void setMonitor(Integer monitor) {
+        this.monitor = monitor;
     }
 
     public List<Integer> getNotify() {

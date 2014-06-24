@@ -16,6 +16,13 @@
                 <td>${host.address}</td>
             </tr>
             <tr>
+                <td>Monitor:</td>
+                <td>
+                    <c:if test="${host.monitor != null}"> <a href="<c:url value="/monitor/${host.monitor}" />">Monitor ${host.monitor}</a> </c:if>
+                    <c:if test="${host.monitor == null}"> <i>None</i> </c:if>
+                </td>
+            </tr>
+            <tr>
                 <td>Active:</td>
                 <td>${host.active}</td>
             </tr>

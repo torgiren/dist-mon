@@ -19,10 +19,6 @@
                     <td><form:input type="text" path="address" /></td>
                 </tr>
                 <tr>
-                    <td><form:label path="hosts">Hosts:</form:label></td>
-                    <td><form:select multiple="true" path="hosts" items="${availableHosts}" itemLabel="name" itemValue="id" /></td>
-                </tr>
-                <tr>
                     <td><form:label path="sync">Sync:</form:label></td>
                     <td><form:input type="text" path="sync" /></td>
                 </tr>

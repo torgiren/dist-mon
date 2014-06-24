@@ -1,9 +1,11 @@
 package is.agh.dist.mon.gui.www.controller;
 
 import is.agh.dist.mon.api.dto.HostDto;
+import is.agh.dist.mon.api.dto.MonitorDto;
 import is.agh.dist.mon.api.dto.ServiceDto;
 import is.agh.dist.mon.api.service.HostService;
 import is.agh.dist.mon.api.service.MeasurementService;
+import is.agh.dist.mon.api.service.MonitorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,6 +22,8 @@ public class HostController {
 
     @Autowired
     private HostService hostService;
+    @Autowired
+    private MonitorService monitorService;
     @Autowired
     private MeasurementService measurementService;
 
@@ -43,6 +47,8 @@ public class HostController {
     public ModelAndView addAction() {
         ModelAndView modelAndView = new ModelAndView("host/add", "host", new HostDto());
 
+        Collection<MonitorDto> monitors = monitorService.findAll();
+        modelAndView.addObject("availableMonitors", monitors);
         Collection<ServiceDto> services = measurementService.findAll();
         modelAndView.addObject("availableServices", services);
 
