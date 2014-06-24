@@ -66,10 +66,12 @@ public class HostController {
         }
     }
     
-    @RequestMapping(value = "/serviceData/{id}/{serviceUrl}")
-    public ModelAndView detailsDataAction(@PathVariable("id") Integer id, @PathVariable("serviceUrl") String serviceUrl) {
+    @RequestMapping(value = "/serviceData/{id}/{service}/{serviceId}")
+    public ModelAndView detailsDataAction(@PathVariable("id") Integer id, 
+                            @PathVariable("service") String serviceUrl,
+                            @PathVariable("service") String serviceId) {
         try {
-            ServiceDataDto service = hostService.findServiceDataById(serviceUrl, id);
+            ServiceDataDto service = hostService.findServiceDataById(serviceUrl + "/" + serviceId, id);
             return new ModelAndView("host/serviceDetails", "service", service);
         } catch (Exception exc) {
             return new ModelAndView("error", "exception", exc);
