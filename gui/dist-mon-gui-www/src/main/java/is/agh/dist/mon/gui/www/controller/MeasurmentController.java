@@ -38,6 +38,8 @@ public class MeasurmentController {
             return new ModelAndView("error", "exception", exc);
         }
     }
+    
+    
 
     @RequestMapping(value = "/service/add")
     public ModelAndView addAction() {

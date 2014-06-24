@@ -24,7 +24,7 @@
                 </tr>
                 <tr>
                     <td><form:label path="active">Active:</form:label></td>
-                    <td><form:checkbox path="active" /></td>
+                    <td><form:input type="text" path="active" /></td>
                 </tr>
                 <tr>
                     <td><form:label path="downtime">Downtime:</form:label></td>

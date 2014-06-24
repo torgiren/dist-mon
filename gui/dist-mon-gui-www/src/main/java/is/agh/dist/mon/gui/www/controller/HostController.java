@@ -1,11 +1,15 @@
 package is.agh.dist.mon.gui.www.controller;
 
+import is.agh.dist.mon.api.dto.HostDetailsDto;
 import is.agh.dist.mon.api.dto.HostDto;
 import is.agh.dist.mon.api.dto.MonitorDto;
+import is.agh.dist.mon.api.dto.ServiceDataDto;
 import is.agh.dist.mon.api.dto.ServiceDto;
 import is.agh.dist.mon.api.service.HostService;
 import is.agh.dist.mon.api.service.MeasurementService;
 import is.agh.dist.mon.api.service.MonitorService;
+import java.util.Collection;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -13,9 +17,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.util.Collection;
-import java.util.List;
 
 @Controller
 public class HostController {
@@ -36,7 +37,7 @@ public class HostController {
     @RequestMapping(value = "/host/{id}")
     public ModelAndView detailsAction(@PathVariable("id") Integer id) {
         try {
-            HostDto host = hostService.findById(id);
+            HostDetailsDto host = hostService.findById(id);
             return new ModelAndView("host/details", "host", host);
         } catch (Exception exc) {
             return new ModelAndView("error", "exception", exc);
@@ -60,6 +61,16 @@ public class HostController {
         try {
             hostService.add(host);
             return new ModelAndView("redirect:/host/list");
+        } catch (Exception exc) {
+            return new ModelAndView("error", "exception", exc);
+        }
+    }
+    
+    @RequestMapping(value = "/serviceData/{id}/{serviceUrl}")
+    public ModelAndView detailsDataAction(@PathVariable("id") Integer id, @PathVariable("serviceUrl") String serviceUrl) {
+        try {
+            ServiceDataDto service = hostService.findServiceDataById(serviceUrl, id);
+            return new ModelAndView("host/serviceDetails", "service", service);
         } catch (Exception exc) {
             return new ModelAndView("error", "exception", exc);
         }

@@ -36,10 +36,6 @@ public class HostServiceRestTest {
     private HostServiceRest hostService;
     
     
-    @Test
-    public void FindHostByIdTest() {
-        HostDto svc = hostService.findById(3);
-    }
     
     @Test
     public void AddHostTest() {

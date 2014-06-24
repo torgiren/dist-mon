@@ -1,12 +1,23 @@
 package is.agh.dist.mon.api.dto;
 
-public class HostDto {
+import java.util.List;
+
+public class HostDetailsDto {
     private int id;
     private String name;
     private String address;
     private int active;
     private int downtime;
     private int monitor;
+    private List<String> services;
+
+    public List<String> getServices() {
+        return services;
+    }
+
+    public void setServices(List<String> services) {
+        this.services = services;
+    }
     
     public int getMonitor() {
         return monitor;

@@ -35,7 +35,7 @@
                 <td>
                     <ul>
                         <c:forEach var="service" items="${host.services}">
-                            <li> <a href="<c:url value="/service/${service}" />">Service ${service}</a> </li>
+                            <li> <a href="<c:url value="/serviceData/${host.id}/${service}" />">Service ${service}</a> </li>
                         </c:forEach>
                     </ul>
                 </td>

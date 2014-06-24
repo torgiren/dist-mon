@@ -1,6 +1,8 @@
 package is.agh.dist.mon.gui.service;
 
+import is.agh.dist.mon.api.dto.HostDetailsDto;
 import is.agh.dist.mon.api.dto.HostDto;
+import is.agh.dist.mon.api.dto.ServiceDataDto;
 import is.agh.dist.mon.api.service.HostService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +31,7 @@ public class HostServiceRest implements HostService {
     }
 
     @Override
-    public HostDto findById(int id) {
+    public HostDetailsDto findById(int id) {
         ResponseEntity<FindByIdResponse> response = restTemplate.getForEntity(catalogAddress + hostByIdQuery, FindByIdResponse.class, id);
         return response.getBody().getHost();
     }
@@ -37,6 +39,12 @@ public class HostServiceRest implements HostService {
     @Override
     public void add(HostDto host) {
         restTemplate.postForLocation(catalogAddress + hostQuery, host);
+    }
+
+    @Override
+    public ServiceDataDto findServiceDataById(String serviceUrl, int hostId) {
+        ResponseEntity<ServiceDataDto> response = restTemplate.getForEntity(catalogAddress + hostByIdQuery + serviceUrl, ServiceDataDto.class, hostId);
+        return response.getBody();
     }
     
     private static class FindAllResponse {
@@ -52,13 +60,13 @@ public class HostServiceRest implements HostService {
     }
 
     private static class FindByIdResponse {
-        private HostDto host;
+        private HostDetailsDto host;
 
-        public HostDto getHost() {
+        public HostDetailsDto getHost() {
             return host;
         }
 
-        public void setHost(HostDto host) {
+        public void setHost(HostDetailsDto host) {
             this.host = host;
         }
     }
