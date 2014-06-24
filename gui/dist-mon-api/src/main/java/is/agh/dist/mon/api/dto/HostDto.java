@@ -1,15 +1,12 @@
 package is.agh.dist.mon.api.dto;
 
-import java.util.List;
-
 public class HostDto {
-
     private int id;
     private String name;
     private String address;
-    private Integer monitor;
-    private boolean active;
+    private int active;
     private int downtime;
+    private int monitor;
     
     public int getId() {
         return id;
@@ -43,11 +40,11 @@ public class HostDto {
         this.monitor = monitor;
     }
 
-    public boolean isActive() {
+    public int isActive() {
         return active;
     }
 
-    public void setActive(boolean active) {
+    public void setActive(int active) {
         this.active = active;
     }
 

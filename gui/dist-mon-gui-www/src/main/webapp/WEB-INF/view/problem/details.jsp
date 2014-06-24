@@ -9,11 +9,11 @@
         <tbody>
             <tr>
                 <td>Service:</td>
-                <td><a href="<c:url value="/service/${problem.service}" />">Service ${problem.service} </a></td>
+                <td><a href="<c:url value="/service/${problem.serviceId}" />">Service ${problem.serviceId} </a></td>
             </tr>
             <tr>
                 <td>Host:</td>
-                <td><a href="<c:url value="/host/${problem.host}" />">Host ${problem.host} </a></td>
+                <td><a href="<c:url value="/host/${problem.hostId}" />">Host ${problem.hostId} </a></td>
             </tr>
             <tr>
                 <td>Status:</td>

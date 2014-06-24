@@ -8,9 +8,9 @@ public class ProblemDto {
     private Integer serviceId;
     private Integer hostId;
     private String status;
-    private String value;
-    private Date start;
-    private Date stop;
+    private int value;
+    private String start;
+    private String stop;
     private Integer ack;
 
     public int getId() {
@@ -21,20 +21,20 @@ public class ProblemDto {
         this.id = id;
     }
 
-    public Integer getService() {
+    public Integer getServiceId() {
         return serviceId;
     }
 
-    public void setService(Integer service) {
-        this.serviceId = service;
+    public void setServiceId(Integer serviceId) {
+        this.serviceId = serviceId;
     }
 
-    public Integer getHost() {
+    public Integer getHostId() {
         return hostId;
     }
 
-    public void setHost(Integer host) {
-        this.hostId = host;
+    public void setHostId(Integer hostId) {
+        this.hostId = hostId;
     }
 
     public String getStatus() {
@@ -45,27 +45,27 @@ public class ProblemDto {
         this.status = status;
     }
 
-    public String getValue() {
+    public int getValue() {
         return value;
     }
 
-    public void setValue(String value) {
+    public void setValue(int value) {
         this.value = value;
     }
 
-    public Date getStart() {
+    public String getStart() {
         return start;
     }
 
-    public void setStart(Date start) {
+    public void setStart(String start) {
         this.start = start;
     }
 
-    public Date getStop() {
+    public String getStop() {
         return stop;
     }
 
-    public void setStop(Date stop) {
+    public void setStop(String stop) {
         this.stop = stop;
     }
 
